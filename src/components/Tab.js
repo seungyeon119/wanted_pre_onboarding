@@ -6,6 +6,7 @@ const data = ['감자', '고구마', '카레라이스'];
 const TabList = styled.ul`
   list-style-type: none;
   display: flex;
+  position: relative;
   padding: 0;
 `;
 const TabItem = styled.li`
@@ -16,7 +17,16 @@ const TabItem = styled.li`
   color: ${({ selected }) => (selected ? 'black' : '#bebebe')};
   cursor: pointer;
 `;
-const TabSlider = styled.span``;
+const TabSlider = styled.span`
+  position: absolute;
+  bottom: 0;
+  width: 150px;
+  height: 3px;
+  z-index: 100;
+  background-color: #10afaf;
+  transform: ${({ activeIndex }) => (activeIndex ? `translate(${100 * activeIndex}%, 0)` : 'none')};
+  transition: transform 0.2s ease-out;
+`;
 
 function Tab() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,7 +41,7 @@ function Tab() {
           {el}
         </TabItem>
       ))}
-      <TabSlider />
+      <TabSlider activeIndex={activeIndex} />
     </TabList>
   );
 }
