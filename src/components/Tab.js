@@ -8,15 +8,28 @@ const TabList = styled.ul`
   display: flex;
   position: relative;
   padding: 0;
+  width: 450px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #d3d3d3;
+  }
 `;
+
 const TabItem = styled.li`
   width: 150px;
   height: 50px;
   line-height: 50px;
   text-align: center;
+  font-weight: 600;
   color: ${({ selected }) => (selected ? 'black' : '#bebebe')};
   cursor: pointer;
 `;
+
 const TabSlider = styled.span`
   position: absolute;
   bottom: 0;
