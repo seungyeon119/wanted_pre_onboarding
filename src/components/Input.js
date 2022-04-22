@@ -5,19 +5,48 @@ import { ReactComponent as CheckSvg } from '../assets/check_circle.svg';
 import { ReactComponent as VisOffSvg } from '../assets/visibility_off_black_24dp.svg';
 import { ReactComponent as VisOnSvg } from '../assets/visibility_black_24dp.svg';
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+  width: 300px;
+  margin: 5px;
+`;
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  width: 300px;
+  height: 40px;
+  border: 1.5px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 5px 10px;
 
-const StyledLabel = styled.label``;
+  &:focus {
+    outline: none;
+    border-color: gray;
+  }
+`;
+
+const StyledLabel = styled.label`
+  display: block;
+  margin: 2px 8px;
+  font-size: 0.8rem;
+  color: gray;
+`;
 
 const CheckIcon = styled(CheckSvg)`
+  position: absolute;
+  height: 40px;
+  right: 10px;
   fill: ${({ isValid }) => (isValid ? '#10AFAF' : '#d3d3d3')};
 `;
 const VisOffIcon = styled(VisOffSvg)`
+  position: absolute;
+  height: 40px;
+  right: 10px;
   fill: gray;
 `;
 const VisOnIcon = styled(VisOnSvg)`
+  position: absolute;
+  height: 40px;
+  right: 10px;
   fill: #10afaf;
 `;
 
