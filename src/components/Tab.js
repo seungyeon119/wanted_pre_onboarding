@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+const data = ['감자', '고구마', '카레라이스'];
+
 const TabList = styled.ul`
   list-style-type: none;
   display: flex;
@@ -24,15 +26,11 @@ function Tab() {
 
   return (
     <TabList>
-      <TabItem selected={activeIndex === 0} onClick={() => handleClick(0)}>
-        감자
-      </TabItem>
-      <TabItem selected={activeIndex === 1} onClick={() => handleClick(1)}>
-        고구마
-      </TabItem>
-      <TabItem selected={activeIndex === 2} onClick={() => handleClick(2)}>
-        카레라이스
-      </TabItem>
+      {data.map((el, idx) => (
+        <TabItem selected={activeIndex === idx} onClick={() => handleClick(idx)}>
+          {el}
+        </TabItem>
+      ))}
       <TabSlider />
     </TabList>
   );
