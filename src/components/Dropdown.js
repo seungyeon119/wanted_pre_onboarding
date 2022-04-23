@@ -125,6 +125,11 @@ function Dropdown() {
       setTimeout(() => {
         inputEl.current.focus();
       }, 100);
+    } else {
+      setTimeout(() => {
+        inputEl.current.value = '';
+        setSuggestions(data);
+      }, 200);
     }
   }, [isVisible]);
 
