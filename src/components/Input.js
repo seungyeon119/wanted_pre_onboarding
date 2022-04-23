@@ -2,8 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as CheckSvg } from '../assets/check_circle.svg';
-import { ReactComponent as VisOffSvg } from '../assets/visibility_off_black_24dp.svg';
-import { ReactComponent as VisOnSvg } from '../assets/visibility_black_24dp.svg';
+import VisOffSvg from '../assets/visibility_off_black_24dp.svg';
+import VisOnSvg from '../assets/visibility_black_24dp.svg';
 
 const Container = styled.div`
   position: relative;
@@ -31,23 +31,22 @@ const StyledLabel = styled.label`
   color: gray;
 `;
 
+const VisibilityButton = styled.button`
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: ${({ isVisible }) => (isVisible ? `#10afaf` : `gray`)};
+  mask-image: ${({ isVisible }) => (isVisible ? `url(${VisOnSvg})` : `url(${VisOffSvg})`)};
+  mask-position: center;
+  mask-repeat: no-repeat;
+`;
+
 const CheckIcon = styled(CheckSvg)`
   position: absolute;
   height: 40px;
   right: 10px;
   fill: ${({ isValid }) => (isValid ? '#10AFAF' : '#d3d3d3')};
-`;
-const VisOffIcon = styled(VisOffSvg)`
-  position: absolute;
-  height: 40px;
-  right: 10px;
-  fill: gray;
-`;
-const VisOnIcon = styled(VisOnSvg)`
-  position: absolute;
-  height: 40px;
-  right: 10px;
-  fill: #10afaf;
 `;
 
 function Input() {
@@ -80,11 +79,7 @@ function Input() {
       <Container>
         <StyledLabel htmlFor="password">Password</StyledLabel>
         <StyledInput id="password" placeholder="Password" type={isVisible ? 'text' : 'password'} />
-        {isVisible ? (
-          <VisOnIcon onClick={handleVisibility} />
-        ) : (
-          <VisOffIcon onClick={handleVisibility} />
-        )}
+        <VisibilityButton type="button" onClick={handleVisibility} isVisible={isVisible} />
       </Container>
     </form>
   );
