@@ -38,6 +38,7 @@ const ListItem = styled.li``;
 function Dropdown() {
   const [isVisible, setIsVisible] = useState(false);
   const [selected, setSelected] = useState('All Symbols');
+  const [suggestions, setSuggestions] = useState(data);
 
   const handleDropdown = () => {
     setIsVisible(!isVisible);
@@ -48,13 +49,22 @@ function Dropdown() {
     setIsVisible(false);
   };
 
+  const onTextChanged = ({ target: { value } }) => {
+    if (value.length === 0) {
+      setSuggestions(data);
+    } else {
+      const re = new RegExp(`.*${value.toUpperCase()}.*`);
+      setSuggestions(data.filter((v) => re.test(v)));
+    }
+  };
+
   return (
     <Container>
       <DropdownButton onClick={handleDropdown}>{selected}</DropdownButton>
       <SearchContainer visible={isVisible}>
-        <SearchInput />
+        <SearchInput onChange={onTextChanged} />
         <SearchList onClick={handleSelected}>
-          {data.map((el) => (
+          {suggestions.map((el) => (
             <ListItem>{el}</ListItem>
           ))}
         </SearchList>
