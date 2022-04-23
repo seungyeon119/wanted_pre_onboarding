@@ -9,7 +9,7 @@ const data = [
   'USDCUSD.PERP',
   'XRPUSD.PERP',
   'SOLUSD.PERP',
-  'SOLLUNA1USD.PERP',
+  'LUNA1USD.PERP',
   'ADAUSD.PERP',
   'HEXUSD.PERP',
   'AVAXUSD.PERP',
@@ -33,20 +33,29 @@ const SearchInput = styled.input``;
 
 const SearchList = styled.ul``;
 
+const ListItem = styled.li``;
+
 function Dropdown() {
   const [isVisible, setIsVisible] = useState(false);
+  const [selected, setSelected] = useState('All Symbols');
+
   const handleDropdown = () => {
     setIsVisible(!isVisible);
   };
 
+  const handleSelected = ({ target }) => {
+    setSelected(target.innerHTML);
+    setIsVisible(false);
+  };
+
   return (
     <Container>
-      <DropdownButton onClick={handleDropdown}>dropdown</DropdownButton>
+      <DropdownButton onClick={handleDropdown}>{selected}</DropdownButton>
       <SearchContainer visible={isVisible}>
         <SearchInput />
-        <SearchList>
+        <SearchList onClick={handleSelected}>
           {data.map((el) => (
-            <li>{el}</li>
+            <ListItem>{el}</ListItem>
           ))}
         </SearchList>
       </SearchContainer>
