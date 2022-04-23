@@ -51,7 +51,7 @@ const VisOnIcon = styled(VisOnSvg)`
 `;
 
 function Input() {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -64,7 +64,7 @@ function Input() {
     }
   };
   const handleEmail = ({ target: { value } }) => {
-    setEmail(value);
+    // setEmail(value);
     validateEmail(value);
   };
   const handleVisibility = () => {
