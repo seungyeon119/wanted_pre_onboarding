@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import DropdownIcon from '../assets/drop_down.svg';
@@ -118,6 +118,15 @@ function Dropdown() {
   const [isVisible, setIsVisible] = useState(false);
   const [selected, setSelected] = useState('All Symbols');
   const [suggestions, setSuggestions] = useState(data);
+  const inputEl = useRef(null);
+
+  useEffect(() => {
+    if (isVisible) {
+      setTimeout(() => {
+        inputEl.current.focus();
+      }, 100);
+    }
+  }, [isVisible]);
 
   const handleDropdown = () => {
     setIsVisible(!isVisible);
@@ -141,7 +150,7 @@ function Dropdown() {
     <Container>
       <DropdownButton onClick={handleDropdown}>{selected}</DropdownButton>
       <SearchContainer visible={isVisible}>
-        <SearchInput onChange={onTextChanged} />
+        <SearchInput onChange={onTextChanged} ref={inputEl} />
         <SearchList onClick={handleSelected}>
           <ListItem>All Symbols</ListItem>
           {suggestions.map((el) => (
