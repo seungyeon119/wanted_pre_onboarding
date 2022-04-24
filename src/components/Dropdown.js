@@ -54,12 +54,14 @@ const DropdownButton = styled.button`
 `;
 
 const SearchContainer = styled.div`
-  position: relative;
+  position: absolute;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   width: 100%;
   margin-top: 5px;
   border-radius: 5px;
+  z-index: 100;
+  background-color: #fff;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   transition: all 0.2s linear;
 

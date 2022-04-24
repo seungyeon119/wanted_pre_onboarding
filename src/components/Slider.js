@@ -75,6 +75,7 @@ const SliderTick = styled.div`
   width: 16px;
   height: 16px;
   border-radius: 50%;
+  margin-bottom: 30px;
   background-color: ${({ value, cur }) => (value > cur ? '#d3d3d3' : '#10AFAF')};
 `;
 
