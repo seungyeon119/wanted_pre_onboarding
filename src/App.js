@@ -35,12 +35,12 @@ function App() {
         <Slider />
       </Container>
       <Container>
-        <Title>4. Dropdown</Title>
-        <Dropdown />
+        <Title>4. Input</Title>
+        <Input />
       </Container>
       <Container>
-        <Title>5. Input</Title>
-        <Input />
+        <Title>5. Dropdown</Title>
+        <Dropdown />
       </Container>
     </div>
   );
