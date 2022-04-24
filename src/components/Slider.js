@@ -26,19 +26,52 @@ const SliderContent = styled.div`
 `;
 
 const SliderInput = styled.input`
+  appearance: none;
   width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background: ${({ value }) =>
+    `linear-gradient(to right, #10afaf 0%, #10afaf ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`};
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    box-sizing: content-box;
+    width: 16px;
+    height: 16px;
+    border: 3px solid white;
+    border-radius: 50%;
+    background: #10afaf;
+    z-index: 100;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    position: relative;
+    box-sizing: content-box;
+    width: 16px;
+    height: 16px;
+    border: 3px solid white;
+    border-radius: 50%;
+    background: #10afaf;
+    z-index: 100;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
 `;
 
 const SliderTicks = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: -20px;
+  margin-top: -17px;
 `;
 
 const SliderTick = styled.div`
-  z-index: -100;
   position: relative;
+  z-index: -100;
   width: 16px;
   height: 16px;
   border-radius: 50%;
