@@ -71,7 +71,6 @@ const SliderTicks = styled.div`
 
 const SliderTick = styled.div`
   position: relative;
-  z-index: -100;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -105,7 +104,7 @@ function Slider() {
   return (
     <Container>
       <SliderContent>{sliderValue}</SliderContent>
-      <SliderInput type="range" value={sliderValue} id="slider" onChange={handleSlider} />
+      <SliderInput type="range" value={sliderValue} id="slider" min="1" onChange={handleSlider} />
 
       <SliderTicks>
         {[1, 25, 50, 75, 100].map((val) => (
