@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# wanted_pre_onboarding
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 구현 결과 링크
 
-## Available Scripts
+https://seungyeon119.github.io/wanted_pre_onboarding/
 
-In the project directory, you can run:
+## 구현 방법
 
-### `npm start`
+- [Toggle.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/2)
+- [Tab.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/3)
+- [Slider.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/6)
+- [Input.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/4)
+- [Dropdown.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/5)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 구현하면서 어려웠던 점 및 해결 방법
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### 어려웠던 점
 
-### `npm test`
+Slider.js를 구현할 때 1, 25, 50, 75, 100% 지점에 Tick을 구현하는 것이 어려웠습니다.  
+처음에는 `position: absolute`로 설정하여 각 Tick의 `left` 속성값을 달리하여 간격을 맞추려고 하였습니다. 하지만 이렇게 하니 슬라이더와 width를 동일하게 잡더라도 그 위치가 조금씩 차이가 있었습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 해결 방법
 
-### `npm run build`
+```css
+display: flex;
+justify-content: space-between;
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+flex를 통해 Tick들의 간격을 동일하게 가지면서 최대한 양옆으로 펴주는 방식으로 나열하니, input과 같은 위치에 틱들이 자리하게 되었습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| as-is                                                                                                           | to-be                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/65777285/164966281-3f413328-623b-40e3-ba0c-60b388c2fbb5.png) | ![image](https://user-images.githubusercontent.com/65777285/164966411-2582428e-1c86-4633-8fda-4cdc42a67d1c.png) |
+| 슬라이더에서 100% 위치와 틱의 100% 위치가 다름                                                                  |                                                                                                                 |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 기타 중점적으로 생각했던 부분
 
-### `npm run eject`
+- Dropdown.js의 드롭다운이나 돋보기 아이콘처럼 별다른 기능이 없는 부분은 직접적인 마크업이 아닌 css로 구현하려고 노력하였습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| 구현방법                                                                                                        | 결과                                                                                                            |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/65777285/164966540-8f251f46-7ae5-449e-94d6-de4cc17f6dd4.png) | ![image](https://user-images.githubusercontent.com/65777285/164966480-8436c430-c58c-46f9-b006-3a74b59c480e.png) |
+| `&::after`로 pseudo-element 생성                                                                                |                                                                                                                 |
+# wanted_pre_onboarding
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 구현 결과 링크
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://seungyeon119.github.io/wanted_pre_onboarding/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 구현 방법
 
-## Learn More
+- [Toggle.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/2)
+- [Tab.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/3)
+- [Slider.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/6)
+- [Input.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/4)
+- [Dropdown.js](https://github.com/seungyeon119/wanted_pre_onboarding/pull/5)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 구현하면서 어려웠던 점 및 해결 방법
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 어려웠던 점
 
-### Code Splitting
+Slider.js를 구현할 때 1, 25, 50, 75, 100% 지점에 Tick을 구현하는 것이 어려웠습니다.  
+처음에는 `position: absolute`로 설정하여 각 Tick의 `left` 속성값을 달리하여 간격을 맞추려고 하였습니다. 하지만 이렇게 하니 슬라이더와 width를 동일하게 잡더라도 그 위치가 조금씩 차이가 있었습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 해결 방법
 
-### Analyzing the Bundle Size
+```css
+display: flex;
+justify-content: space-between;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+flex를 통해 Tick들의 간격을 동일하게 가지면서 최대한 양옆으로 펴주는 방식으로 나열하니, input과 같은 위치에 틱들이 자리하게 되었습니다.
 
-### Making a Progressive Web App
+| as-is                                                                                                           | to-be                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/65777285/164966281-3f413328-623b-40e3-ba0c-60b388c2fbb5.png) | ![image](https://user-images.githubusercontent.com/65777285/164966411-2582428e-1c86-4633-8fda-4cdc42a67d1c.png) |
+| 슬라이더에서 100% 위치와 틱의 100% 위치가 다름                                                                  |                                                                                                                 |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 기타 중점적으로 생각했던 부분
 
-### Advanced Configuration
+- Dropdown.js의 드롭다운이나 돋보기 아이콘처럼 별다른 기능이 없는 부분은 직접적인 마크업이 아닌 css로 구현하려고 노력하였습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| 구현방법                                                                                                        | 결과                                                                                                            |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/65777285/164966540-8f251f46-7ae5-449e-94d6-de4cc17f6dd4.png) | ![image](https://user-images.githubusercontent.com/65777285/164966480-8436c430-c58c-46f9-b006-3a74b59c480e.png) |
+| `&::after`로 pseudo-element 생성                                                                                |                                                                                                                 |
