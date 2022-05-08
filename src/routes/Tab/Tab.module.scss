@@ -1,0 +1,45 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.tabList {
+  position: relative;
+  display: flex;
+  width: 450px;
+  padding: 0;
+  list-style-type: none;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+    background-color: colors.$GRAYD;
+  }
+
+  .tabItem {
+    width: 150px;
+    height: 50px;
+    font-weight: 600;
+    line-height: 50px;
+    color: colors.$GRAYD;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &.selected {
+      position: relative;
+      color: colors.$BLACK;
+    }
+  }
+
+  .tabSlider {
+    @include position.absolute((auto, auto, 0, 0));
+    z-index: 100;
+    width: 150px;
+    height: 3px;
+    background-color: colors.$MAIN;
+    transition: all 0.2s ease-out;
+  }
+}

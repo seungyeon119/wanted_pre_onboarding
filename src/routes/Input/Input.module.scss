@@ -1,0 +1,55 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.container {
+  @include flexbox.flexbox(auto, start);
+  flex-direction: column;
+  position: relative;
+  margin: 5px;
+
+  label {
+    display: block;
+    margin: 2px 8px;
+    font-size: 0.8rem;
+    color: colors.$GRAY6;
+  }
+
+  .inputContainer {
+    position: relative;
+
+    input {
+      box-sizing: border-box;
+      height: 40px;
+      padding: 5px 40px 5px 10px;
+      border: 1.5px solid colors.$GRAYD;
+      border-radius: 5px;
+
+      &:focus {
+        border-color: colors.$GRAY6;
+        outline: none;
+      }
+    }
+
+    button {
+      @include position.absolute((0, 0, auto, auto));
+      width: 40px;
+      height: 40px;
+    }
+
+    .icon {
+      @include position.absolute((0, 10px, auto, auto));
+      height: 40px;
+      fill: colors.$GRAYD;
+
+      &.valid,
+      &.visOn {
+        fill: colors.$MAIN;
+      }
+
+      &.visOff {
+        fill: colors.$GRAYA;
+      }
+    }
+  }
+}
